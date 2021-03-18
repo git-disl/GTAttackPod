@@ -1,1 +1,6 @@
 theme: jekyll-theme-cayman
+
+title: "GTAttackPod: Adversarial Attacks Against Deep Neural Networks"
+description: Ka-Ho Chow, Wenqi Wei, Yanzhao Wu, and Ling Liu
+
+show_downloads: True
