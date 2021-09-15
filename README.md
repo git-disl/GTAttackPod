@@ -60,10 +60,16 @@ python attack_scripts/FGSM-UA_MNIST_CNN7.py
 ```
 
 ### MacOS without GPUs
-It is recommended to use `conda` for package management in MacOS. The following instructions have been tested on the Macbook Air machine:
-* OS: macOS Big Sur Version 11.5.2
-* Processor: Apple M1
-* Memory: 8 GiB
+It is recommended to use `conda` for package management in MacOS. The following instructions have been tested on the machines:
+* Macbook Pro (Intel CPU):
+   * OS: macOS Big Sur Version 11.2.3
+   * Processor: 2.3 GHz Quad-Core Intel Core i7
+   * Memory: 32 GiB
+
+* Macbook Air (Apple M1):
+   * OS: macOS Big Sur Version 11.5.2
+   * Processor: Apple M1
+   * Memory: 8 GiB
 
 Create a virtual environment:
 ```bash
@@ -85,6 +91,8 @@ If you encounter an error about an initialized OpenMP, install the following lib
 ```bash
 conda install nomkl
 ```
+
+While the above steps have been verified on a Macbook Air with an M1 chip, the installation of Tensorflow may cause unexpected errors. We encountered such errors on other MacOS machines. We highly recommend you to run the repository on Ubuntu, ideally with GPU installed.
 
 ## Supported Attacks
 Ten attacks are supported in the current version. The details can be found under the `attacks` directory. Below shows the list of attack functions you can invoke and their default hyperparameters.
