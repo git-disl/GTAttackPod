@@ -8,11 +8,82 @@ This project offers the following features to facilitate the development of adve
 4. It keeps track of the progress of generating adversarial examples.
 
 ## Installation and Dependencies
-This project runs on Python 3.6. You are highly recommended to create a virtual environment to make sure the dependencies do not interfere with your current programming environment. By default, GPUs will be used to accelerate the process of adversarial attacks. 
+This project has been developed on a Linux machine with the following configuration:
+* OS: GeForce RTX 2080 SUPER/PCIe/SSE2
+* Processor: Intel® Core™ i7-9700K CPU @ 3.60GHz × 8
+* Memory: 31.2 GiB
+* GPU: GeForce RTX 2080 SUPER/PCIe/SSE2
+* Python Version: 3.6
 
-To install related packages, run the following command in terminal:
+### Ubuntu with GPUs (Recommended)
+Create a virtual environment:
 ```bash
-pip install -r requirements.txt
+python3 -m venv venv
+```
+Enter the virtual environment:
+```bash
+source venv/bin/activate
+```
+Make sure `pip` is up-to-date:
+```bash
+python -m pip install --upgrade pip
+```
+Install the required libraries:
+```bash
+pip install -r requirements-gpu.txt
+```
+Verify your installation by running an attack:
+```bash
+python attack_scripts/FGSM-UA_MNIST_CNN7.py
+```
+
+### Ubuntu without GPUs
+Create a virtual environment:
+```bash
+python3 -m venv venv
+```
+Enter the virtual environment:
+```bash
+source venv/bin/activate
+```
+Make sure `pip` is up-to-date:
+```bash
+python -m pip install --upgrade pip
+```
+Install the required libraries:
+```bash
+pip install -r requirements-ubuntu-cpu.txt
+```
+Verify your installation by running an attack:
+```bash
+python attack_scripts/FGSM-UA_MNIST_CNN7.py
+```
+
+### MacOS without GPUs
+It is recommended to use `conda` for package management in MacOS. The following instructions have been tested on the Macbook Air machine:
+* OS: macOS Big Sur Version 11.5.2
+* Processor: Apple M1
+* Memory: 8 GiB
+
+Create a virtual environment:
+```bash
+conda create -n gtattackpod python=3.6
+```
+Enter the virtual environment:
+```bash
+conda activate gtattackpod
+```
+Install the required libraries:
+```bash
+conda install --file requirements-macos-cpu.txt
+```
+Verify your installation by running an attack:
+```bash
+python attack_scripts/FGSM-UA_MNIST_CNN7.py
+```
+If you encounter an error about an initialized OpenMP, install the following library:
+```bash
+conda install nomkl
 ```
 
 ## Supported Attacks

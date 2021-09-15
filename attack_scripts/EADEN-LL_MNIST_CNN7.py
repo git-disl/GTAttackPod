@@ -1,3 +1,5 @@
+import sys
+sys.path.append(".")
 from attacks import *
 from datasets import *
 from models import *
@@ -6,7 +8,7 @@ import time
 
 if __name__ == '__main__':
     dataset = MNISTDataset()
-    model = MNIST_carlini(rel_path='../')
+    model = MNIST_carlini(rel_path='./')
     X_test, Y_test, Y_test_target_ml, Y_test_target_ll = get_data_subset_with_systematic_attack_labels(dataset=dataset,
                                                                                                        model=model,
                                                                                                        balanced=True,
